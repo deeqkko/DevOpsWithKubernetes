@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: kube-todo
-        image: deeq/kube-todo
+        image: deeq/kube-todo:latest
         resources:
           limits:
             memory: "128Mi"
