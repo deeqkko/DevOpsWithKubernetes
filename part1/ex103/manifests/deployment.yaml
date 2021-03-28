@@ -12,5 +12,5 @@ spec:
         app: print-uuid
     spec:
       containers:
-      - name: ex101-main-app
+      - name: print-uuid
         image: deeq/print_uuid
