@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ex101-main-app
+spec:
+  selector:
+    matchLabels:
+      app: ex101-main-app
+  template:
+    metadata:
+      labels:
+        app: ex101-main-app
+    spec:
+      containers:
+      - name: ex101-main-app
+        image: deeq/ex101:latest
