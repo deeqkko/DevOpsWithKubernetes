@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: kube-todo
-        image: deeq/ex102
+        image: deeq/kube-todo
         resources:
           limits:
             memory: "128Mi"
