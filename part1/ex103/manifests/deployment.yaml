@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ex101-main-app
+  name: print-uuid
 spec:
   selector:
     matchLabels:
-      app: ex101-main-app
+      app: print-uuid
   template:
     metadata:
       labels:
-        app: ex101-main-app
+        app: print-uuid
     spec:
       containers:
       - name: ex101-main-app
-        image: deeq/ex101:latest
+        image: deeq/print_uuid
