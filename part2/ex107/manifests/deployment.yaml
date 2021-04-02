@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: print-uuid-http
+spec:
+  selector:
+    matchLabels:
+      app: print-uuid-http
+  template:
+    metadata:
+      labels:
+        app: print-uuid-http
+    spec:
+      containers:
+      - name: print-uuid-http
+        image: deeq/print_uuid-http:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8083

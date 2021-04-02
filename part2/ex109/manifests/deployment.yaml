@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pong
+spec:
+  selector:
+    matchLabels:
+      app: pong
+  template:
+    metadata:
+      labels:
+        app: pong
+    spec:
+      containers:
+      - name: pong
+        image: deeq/pong:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8084

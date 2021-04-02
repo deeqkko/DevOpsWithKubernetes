@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: print-uuid
+  labels:
+      name: print-uuid-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          serviceName: print-uuid-http
+          servicePort: 2345
+      - pathType: Prefix
+        path: "/pingpong"
+        backend:
+          serviceName: pong-service
+          servicePort: 3456
