@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pong-app 
+spec:
+  selector:
+    matchLabels:
+      app: pong-app
+  template:
+    metadata:
+      labels:
+        app: pong-app
+    spec:
+      volumes:
+        - name: shared-image
+          persistentVolumeClaim:
+            claimName: uuid-pong-pvc
+      containers:
+      - name: pong-app
+        image: deeq/pong-app:latest
+        volumeMounts:
+          - mountPath: /usr/src/app/files
+            name: shared-image
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8084

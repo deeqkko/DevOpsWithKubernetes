@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hash-gen-read-http
+spec:
+  selector:
+    matchLabels:
+      app: hash-gen-read-http
+  template:
+    metadata:
+      labels:
+        app: hash-gen-read-http
+    spec:
+      volumes:
+        - name: shared-image
+          emptyDir: {}
+      containers:
+      - name: hash-read
+        image: deeq/hash-read:latest
+        volumeMounts:
+          - mountPath: /usr/src/app/files
+            name: shared-image
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8083
+      - name: hash-gen
+        image: deeq/hash-gen:latest
+        volumeMounts:
+          - mountPath: /usr/src/app/files
+            name: shared-image
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+

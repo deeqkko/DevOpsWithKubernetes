@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: uuid-pong-ingress
+  labels:
+      name: uuid-pong-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          serviceName: uuid-app-service
+          servicePort: 18083
+      - pathType: Prefix
+        path: "/pingpong"
+        backend:
+          serviceName: pong-app-service
+          servicePort: 18084

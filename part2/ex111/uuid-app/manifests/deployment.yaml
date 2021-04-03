@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uuid-app 
+spec:
+  selector:
+    matchLabels:
+      app: uuid-app
+  template:
+    metadata:
+      labels:
+        app: uuid-app
+    spec:
+      volumes:
+        - name: shared-image
+          persistentVolumeClaim:
+            claimName: uuid-pong-pvc
+      containers:
+      - name: uuid-app
+        image: deeq/uuid-app:latest
+        volumeMounts:
+          - mountPath: /usr/src/app/files
+            name: shared-image
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8083
