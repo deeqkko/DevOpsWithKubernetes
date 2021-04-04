@@ -1,5 +1,3 @@
-#Project v0.3 (ex1.05) respond to GET request
-
 from django.shortcuts import render
 from django.http import HttpResponse
 
