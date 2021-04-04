@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block todolist %}
+    <h3>Tasks</h3>
+    <ul>
+        {% for task in object_list %}
+            <li>{{task.task}}</li>
+        {% endfor %}
+    </ul>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit">
+    </form>
+
+{% endblock %}
+

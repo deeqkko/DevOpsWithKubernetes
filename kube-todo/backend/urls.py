@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
+from backend.views import TodoListView
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', TodoListView.as_view())
 ]
