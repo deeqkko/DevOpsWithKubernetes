@@ -8,11 +8,12 @@ https://docs.djangoproject.com/en/3.1/howto/deployment/wsgi/
 """
 
 import os
-
 from django.core.wsgi import get_wsgi_application
+
+port = str(os.environ.get('PORT', default=8000))
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kube_todo.settings')
 
 application = get_wsgi_application()
 
-print('Server started on port ' + str(os.environ.get('PORT')))
+print('Server started on port %s' % port )

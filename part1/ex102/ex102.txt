@@ -1,0 +1,3 @@
+Project v0.1 Kube todo app
+
+Source code in kube-todo folder. Port is printed on server startup (print statement in wsgi.py)
