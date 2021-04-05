@@ -15,6 +15,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+DB_DIR = str(BASE_DIR) + '/DB/'
 
 
 # Quick-start development settings - unsuitable for production
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'kube_todo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': DB_DIR + 'db.sqlite3',
     }
 }
 
@@ -121,4 +122,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = 'static/kube_todo/'
+STATIC_ROOT = 'static/backend/'
+
+MEDIA_URL = 'potd/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'backend/potd')
+

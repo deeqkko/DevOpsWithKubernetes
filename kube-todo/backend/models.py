@@ -5,6 +5,9 @@ class todo(models.Model):
 
     def __str__(self):
         return self.task
+
+class Potd(models.Model):
+    image_file = models.ImageField(upload_to='potd')
     
 
 
