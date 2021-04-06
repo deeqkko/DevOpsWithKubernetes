@@ -12,6 +12,11 @@
         {{form}}
         <input type="submit">
     </form>
+    <h4>Example tasks</h4>
+    <ul>
+    {% for task in dummy_tasks.task %}
+        <li>{{task}}</li>
+    {% endfor %}
 
 {% endblock %}
 
