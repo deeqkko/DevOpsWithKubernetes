@@ -21,8 +21,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('backend.urls'))
+    path('kube-todo/admin/', admin.site.urls),
+    path('kube-todo/', include('backend.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
