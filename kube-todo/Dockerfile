@@ -11,7 +11,8 @@ ADD . /app/
 # set default environment variables
 ENV PYTHONUNBUFFERED 1
 ENV LANG C.UTF-8
-ENV DEBIAN_FRONTEND=noninteractive 
+ENV DEBIAN_FRONTEND=noninteractive
+ENV DUMMY_URL=http://dummy-db-svc:18085 
 
 # set project environment variables
 # grab these via Python's os.environ

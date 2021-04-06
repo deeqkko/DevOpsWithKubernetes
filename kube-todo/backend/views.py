@@ -6,6 +6,7 @@ from django.views.generic.list import ListView
 from .forms import TodoForm
 from backend.models import todo, Potd
 from backend.potd import load_image
+from backend.dummyconnector import get_dummy_tasks
 
 
 
@@ -22,6 +23,7 @@ class TodoListView(ListView):
         context = super().get_context_data(**kwargs)
         context["form"] = self.todoform
         context["potd"] = Potd.objects.get()
+        context["dummy_tasks"] = get_dummy_tasks()
         return context
     
     def post(self, request, **kwargs):

@@ -1,3 +1,4 @@
 part1/ex102/creds.txt
 kube-todo/.env
+kube-todo/DB/db.sqlite3
 triggerBuild.rest
