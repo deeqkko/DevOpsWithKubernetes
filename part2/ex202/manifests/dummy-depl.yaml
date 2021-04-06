@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dummy-db
+spec:
+  selector:
+    matchLabels:
+      app: dummy-db
+  template:
+    metadata:
+      labels:
+        app: dummy-db
+    spec:
+      containers:
+      - name: dummy-db
+        image: deeq/dummy-db:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8085
