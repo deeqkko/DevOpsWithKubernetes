@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uuid-app-http
+  namespace: exercises
+spec:
+  selector:
+    matchLabels:
+      app: uuid-app-http
+  template:
+    metadata:
+      labels:
+        app: uuid-app-http
+    spec:
+      containers:
+      - name: uuid-app-http
+        image: deeq/uuid-app-http:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8083

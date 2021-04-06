@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: project-ingress
+  namespace: project
+  labels:
+      name: project-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          serviceName: kube-todo-service
+          servicePort: 18000
+      - pathType: Prefix
+        path: "/dummy-db"
+        backend:
+          serviceName: dummy-db-svc
+          servicePort: 18085

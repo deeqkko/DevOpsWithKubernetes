@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pong-app-http-service
+  namespace: exercises
+spec:
+  type: ClusterIP
+  selector:
+    app: pong-app-http
+  ports:
+  - port: 18084
+    targetPort: 8084
