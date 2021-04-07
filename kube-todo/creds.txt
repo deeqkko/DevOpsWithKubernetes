@@ -1,2 +1,0 @@
-superuser: kube_todo
-password: 1kube_todo2
