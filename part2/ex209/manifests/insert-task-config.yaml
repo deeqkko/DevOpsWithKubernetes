@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: insert-task-config
+data:
+  todoURL: 'http://kube-todo-service'
+  wikiURL: 'https://en.wikipedia.org/wiki/Special:Random'

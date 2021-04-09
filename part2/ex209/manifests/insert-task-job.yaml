@@ -1,0 +1,18 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: insert-task
+  namespace: project
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: insert-task
+            image: deeq/insert-task:latest
+            envFrom:
+              - configMapRef:
+                  name: insert-task-config
+          restartPolicy: OnFailure

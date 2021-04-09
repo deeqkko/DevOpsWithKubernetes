@@ -28,7 +28,7 @@ SECRET_KEY = str(os.environ.get('SECRET_KEY'))
 #DEBUG = True
 DEBUG = int(os.environ.get('DEBUG', default=1))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ * ]
 
 
 # Application definition
