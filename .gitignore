@@ -3,3 +3,4 @@ kube-todo/.env
 kube-todo/DB/db.sqlite3
 triggerBuild.rest
 
+part2/ex207/manifests/postgres-secret.yaml
