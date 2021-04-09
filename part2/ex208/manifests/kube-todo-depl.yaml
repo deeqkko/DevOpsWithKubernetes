@@ -34,8 +34,8 @@ spec:
         ports:
         - containerPort: 8000
         envFrom:
-        - configKeyReg:
-          name: app-config
+        - configMapRef:
+            name: app-conf
         env:
           - name: POSTGRES_PASSWORD
             valueFrom:
