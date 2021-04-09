@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: kube-todo-secret
+  namespace: project
+spec:
+  encryptedData:
+    POSTGRES_PASSWORD: AgChYX4Oxm+/gJuWM8UGyM/ocqOgx+PQwAeN38hGm/+NfAQrXpNue4US/3kTbeVRVFJ1+/LwzcUMFKUTwD/sEtaE6DHtNrDA85o+RBiyOh6E/TOk1TUbmQfTer1EiZgiQsvrZ5l2UujG5LpFM2qGkbrxElJbZVJh6qnWk0qwuqo1BWmeKs6acoY6SMVWDveDl63Tm8Hwowm0xUxz+xne33KnJk2tWeHmx+TzAS3BPrfd8nZv4E7vpHUiAK/a27RvUk7ZrDPk4cNuIgqcPMOqXKqRSumgABo8/yw35GE5ZYPG6qEXLfv1tjxQ+4+icQl4Zlz/q5YoW+th4oWrqm5mBMBlXwZosAGtzzo5QMviinMeisa+iZUnF3yE6iDXmj5HrXMrPHRVLbJD7w5mowHHUdE6L30a20phWxFcNvDLRHb4+yIFQ+hqXG/1F9zNjK24vLkB4SCBnuRiOCxF2qsnNkxo1nNaxkXutbIdHZ6xQlvw2Ni5FTOm3SZR81P82kxkd23gep1ODhijdwTjWZOyyw4uFynWjuApCp/AGBN+Exn7WEeHUnD3d2RdSYWYfG6A4v+ZiCcCaoJvZ1kADG2JpB8hwO/zepR0o2IRWUT8VaP/GVcsNJkz9wvTx8VEtpauob6cti3fLOs37BUrHaAA2A+9EBDKb4g9juTVrB+gR98zwR6ltg5wRSVMwM8V6PTD6XV0TkCfz19RqEToEWYE/CWJHve2
+  template:
+    metadata:
+      creationTimestamp: null
+      name: kube-todo-secret
+      namespace: project
+    type: Opaque
+

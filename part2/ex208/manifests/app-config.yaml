@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-conf
+  namespace: project
+data:
+  dbname: tododb
+  dbuser: todouser
+  dbhost: tododb-svc
