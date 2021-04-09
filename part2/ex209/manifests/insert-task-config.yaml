@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: insert-task-config
 data:
-  todoURL: 'http://kube-todo-service'
+  todoURL: 'http://kube-todo-service:18000'
   wikiURL: 'https://en.wikipedia.org/wiki/Special:Random'
