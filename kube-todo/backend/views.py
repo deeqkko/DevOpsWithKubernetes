@@ -1,5 +1,6 @@
 import time
 import os
+import logging
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic.list import ListView
@@ -8,7 +9,8 @@ from backend.models import todo, Potd
 from backend.potd import load_image
 from backend.dummyconnector import get_dummy_tasks
 
-
+logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 class TodoListView(ListView):
@@ -24,12 +26,17 @@ class TodoListView(ListView):
         context["form"] = self.todoform
         context["potd"] = Potd.objects.get()
         context["dummy_tasks"] = get_dummy_tasks()
+        uri = self.request.build_absolute_uri()
+        method = self.request.method
+        logger.info('%s %s', method, uri)
         return context
     
     def post(self, request, **kwargs):
         new_task = TodoForm(request.POST)
         if new_task.is_valid():
             new_task.save()
+            req_data = self.request.POST['task']
+            logger.info('Task ["%s"] inserted.', req_data)
             return redirect('/')
         else:
             return HttpResponse('Failed...')
