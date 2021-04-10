@@ -2,7 +2,7 @@ import time
 import os
 import logging
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.views.generic.list import ListView
 from .forms import TodoForm
 from backend.models import todo, Potd
@@ -39,6 +39,7 @@ class TodoListView(ListView):
             logger.info('Task ["%s"] inserted.', req_data)
             return redirect('/')
         else:
-            return HttpResponse('Failed...')
+            logger.error(new_task.errors.as_data())
+            return HttpResponseBadRequest(new_task.errors)
     
 
