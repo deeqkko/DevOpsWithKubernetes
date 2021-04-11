@@ -6,3 +6,4 @@ metadata:
 data:
   POSTGRES_DB: tododb
   POSTGRES_USER: todouser
+  POSTGRES_HOST_AUTH_METHOD: md5
