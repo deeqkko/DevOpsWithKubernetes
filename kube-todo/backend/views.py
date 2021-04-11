@@ -24,6 +24,9 @@ class TodoListView(ListView):
             load_image()
         context = super().get_context_data(**kwargs)
         context["form"] = self.todoform
+        if not Potd.objects.exists():
+            Potd(1,'potd/potd.jpg').save()
+            logger.info('No image reference found. Creating ["potd/potd.jpg]')
         context["potd"] = Potd.objects.get()
         context["dummy_tasks"] = get_dummy_tasks()
         uri = self.request.build_absolute_uri()
