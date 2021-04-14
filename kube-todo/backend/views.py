@@ -1,6 +1,7 @@
 import time
 import os
 import logging
+import logging_loki
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.views.generic.list import ListView
@@ -9,8 +10,17 @@ from backend.models import todo, Potd
 from backend.potd import load_image
 from backend.dummyconnector import get_dummy_tasks
 
+handler = logging_loki.LokiHandler(
+    url="https://loki.loki-stack:3100/loki/api/v1/push", 
+    tags={"application": "kube-todo"},
+    #auth=("username", "password"),
+    version="1",
+)
+
+
 logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',level=logging.INFO)
 logger = logging.getLogger(__name__)
+logger.addHandler(handler)
 
 
 class TodoListView(ListView):
