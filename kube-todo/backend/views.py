@@ -11,10 +11,9 @@ from backend.potd import load_image
 from backend.dummyconnector import get_dummy_tasks
 
 handler = logging_loki.LokiHandler(
-    url="https://loki.loki-stack:3100/loki/api/v1/push", 
+    url=os.getenv('LOG_URL'), 
     tags={"application": "kube-todo"},
-    #auth=("username", "password"),
-    version="1",
+    version="1"
 )
 
 

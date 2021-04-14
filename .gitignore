@@ -2,8 +2,12 @@ kube-todo/creds.txt
 kube-todo/.env
 kube-todo/DB/db.sqlite3
 triggerBuild.rest
+kustomize/
 
 part2/ex207/manifests/postgres-secret.yaml
 part2/ex208/manifests/kube-todo-secret.yaml
 busybox.yaml
 kube-todo/DB/db.sqlite3
+cookies.txt
+kustomize/pong-postgres/postgres-secret.yaml
+kustomize/kube-todo/kube-todo-secret.yaml
