@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pong-conf
+  namespace: exercises
+data:
+  dbhost: pong-postgres-svc
+  dbname: pongdb
+  dbuser: postgresadmin

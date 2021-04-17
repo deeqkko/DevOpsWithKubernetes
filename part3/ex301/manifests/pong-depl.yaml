@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pong-app-http 
+  namespace: exercises
+spec:
+  selector:
+    matchLabels:
+      app: pong-app-http
+  template:
+    metadata:
+      labels:
+        app: pong-app-http
+    spec:
+      containers:
+      - name: pong-app-http
+        image: deeq/pong-app-http:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8084
+        envFrom:
+        - configMapRef:
+            name: pong-conf
+        env:
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-secret
+                key: POSTGRES_PASSWORD
+

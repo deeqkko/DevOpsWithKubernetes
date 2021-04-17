@@ -15,7 +15,8 @@ def read_pongcount():
     conn = get_conn()
     cur = conn.cursor()
     cur.execute("SELECT * FROM pongcount")
-    return cur.fetchone()[1]
+    res = cur.fetchone()[1]
+    return res
 
 def update_pongcount(count):
     conn = get_conn()
@@ -27,6 +28,8 @@ def update_pongcount(count):
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
+        if self.path.endswith('favicon.ico'):
+            return
         self.send_response(200)
         self.send_header('Content-type','text/html')
         self.end_headers()

@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: postgres-secret
+  namespace: exercises
+spec:
+  encryptedData:
+    POSTGRES_PASSWORD: AgA4AsMvS+jgvdAn4iZ7sh7cgcOz0Q8NcP3qguaBYUBH8SJ56cnbpfiwuzx69tR+wv4DSSX6kjsgC3dn1kHgGdTx/9zWFaqDIO7B9TPYpsWeKVyUv4fNvYZxf6WidLWuMxFM9Z60LNVIp2Rrma0CnCHCchkCEdkl4oZjG5PqkRvH/CQ+GqMm6Ajhb/L0rtoH2tFxi8KLd+698C0zFbM8rEC0Uvh0wx6Vh8HWi6n+LAyZ5HPJK2/G/1uE8W00/AF5v1DW89l1IXckwiNFz8HWqAOgdE/ztmb3MvEiDhQIzY4wsgnIEHYsclrkUsPmReI1VVl3gFU2jWWZItssmk1ws/CHZg+xteANpQ1j6mKpgICwU8rVQXZjrj7kTYzruvzIHc8PNqpCZAov4ReMZOpskVWzEI1xrZYf6tZz+RBeQajU15eLjCxCxDgy9+FF6l/HEdlnhxU+yz3Ij0RC2Ytb5xzjrhJwg1xceF50FbMFiKmT5b/OWUxCECDBCRPA9eGuCoPj5LQxhhZztrbSvNijPe6fXPngv6saOp9Wdimg4lCT6HgrcJ4HYZEVYSWf1f/UsCKQRsAaYJ33uQIZFi9oKfj7UD0Lz/WLhtUU9bUzYalf5qzxMbpoyhcGqaciD6jHFMGoV95zGk3XUy26L4Z2MHwLzfPTutFukaX7+8bCkeQW8arAKSolnQB2qTwZ3jZaPnJOaW/uqQYf4w==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: postgres-secret
+      namespace: exercises
+    type: Opaque
+
