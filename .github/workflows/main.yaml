@@ -43,4 +43,4 @@ jobs:
         run: |-
           ./kustomize edit set image PROJECT/IMAGE=$IMAGE_WITH_TAG
           kubectl apply -k .
-          kubectl rollout status deployment $IMAGE
+          kubectl rollout status deployment $IMAGE --namespace project
