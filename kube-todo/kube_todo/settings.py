@@ -30,7 +30,8 @@ DEBUG = int(os.environ.get('DEBUG', default=1))
 
 ALLOWED_HOSTS = [ 
     'localhost',
-    'kube-todo-service'
+    'kube-todo-service',
+    '35.228.143.72'
  ]
 
 
@@ -80,25 +81,25 @@ WSGI_APPLICATION = 'kube_todo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': DB_DIR + 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
-
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.getenv('dbname'),
-#         'USER': os.getenv('dbuser'),
-#         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-#         'HOST': os.getenv('dbhost'),
-#         'PORT': 5432,
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': DB_DIR + 'db.sqlite3',
 #     }
-
 # }
+
+DATABASES = {
+
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('dbname'),
+        'USER': os.getenv('dbuser'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('dbhost'),
+        'PORT': 5432,
+    }
+
+}
 
 
 # Password validation
