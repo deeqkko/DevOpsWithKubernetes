@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: exercise-ingress
+  namespace: exercises
+  labels:
+      name: exercise-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/uuid-app"
+        backend:
+          serviceName: uuid-app-http-service
+          servicePort: 80
+      - pathType: Prefix
+        path: "/pingpong"
+        backend:
+          serviceName: pong-app-http-service
+          servicePort: 80
