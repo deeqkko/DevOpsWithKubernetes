@@ -7,6 +7,7 @@ env:
   GKE_CLUSTER: dwk-kko
   GKE_ZONE: europe-north1-b
   IMAGE: project
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 jobs:
   build-publish-deploy:
@@ -16,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@master
         with:
           service_account_key: ${{ secrets.GKE_SA_KEY }}
           project_id: ${{ secrets.GKE_PROJECT_ID }}
