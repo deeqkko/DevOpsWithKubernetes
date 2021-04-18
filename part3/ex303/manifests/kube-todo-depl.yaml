@@ -15,10 +15,6 @@ spec:
       containers:
       - name: kube-todo
         image: PROJECT/IMAGE
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
         ports:
         - containerPort: 8000
         envFrom:
