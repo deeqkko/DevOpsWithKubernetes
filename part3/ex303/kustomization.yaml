@@ -6,5 +6,5 @@ resources:
   - kube-todo/kube-todo-depl.yaml
 
 images:
-  - name: project
+  - name: PROJECT/IMAGE
     newName: deeq/kube-todo:latest

@@ -5,5 +5,5 @@ resources:
   - manifests/kube-todo-depl.yaml
 
 images:
-  - name: project
-    newName: "$IMAGE_WITH_TAG"
+  - name: PROJECT/IMAGE
+    newName: deeq/kube-todo:latest
