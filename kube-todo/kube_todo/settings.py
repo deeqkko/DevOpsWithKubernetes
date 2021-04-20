@@ -33,7 +33,7 @@ DEBUG = int(os.environ.get('DEBUG', default=1))
 #     'kube-todo-service',
 #     '35.228.143.72'
 #  ]
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
