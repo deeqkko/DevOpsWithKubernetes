@@ -11,7 +11,7 @@ env:
 
 jobs:
   build-publish-deploy:
-    name: PBaD
+    name: Delete namespace
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
