@@ -1,6 +1,6 @@
 name: Release Application
 
-on: [push, delete]
+on: [delete]
 
 env:
   GKE_CLUSTER: dwk-kko
@@ -9,8 +9,8 @@ env:
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 jobs:
-  build-publish-deploy:
-    name: PBaD
+  delete-environment:
+    name: Delete environment
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
