@@ -28,12 +28,12 @@ SECRET_KEY = str(os.environ.get('SECRET_KEY'))
 #DEBUG = True
 DEBUG = int(os.environ.get('DEBUG', default=1))
 
-ALLOWED_HOSTS = [ 
-    'localhost',
-    'kube-todo-service',
-    '35.228.143.72'
- ]
-
+# ALLOWED_HOSTS = [ 
+#     'localhost',
+#     'kube-todo-service',
+#     '35.228.143.72'
+#  ]
+ALLOWED_HOSTS = [*]
 
 # Application definition
 
