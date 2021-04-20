@@ -1,0 +1,27 @@
+name: Release Application
+
+on:
+  delete:
+
+env:
+  GKE_CLUSTER: dwk-kko
+  GKE_ZONE: europe-north1-b
+  IMAGE: kube-todo
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
+jobs:
+  build-publish-deploy:
+    name: PBaD
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: google-github-actions/setup-gcloud@master
+        with:
+          service_account_key: ${{ secrets.GKE_SA_KEY }}
+          project_id: ${{ secrets.GKE_PROJECT_ID }}
+      
+      - name: Delete namespace
+      - run: |-
+          kubectl delete namespace ${GITHUB_REF#refs/heads/}
