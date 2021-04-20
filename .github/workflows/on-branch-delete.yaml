@@ -1,7 +1,6 @@
 name: Release Application
 
-on:
-  delete:
+on: [push, delete]
 
 env:
   GKE_CLUSTER: dwk-kko
