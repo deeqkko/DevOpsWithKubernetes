@@ -32,7 +32,7 @@ jobs:
         run: docker build --tag "$IMAGE_WITH_TAG" kube-todo/.
 
       - name: Publish
-        run: docker push "$IMAGE_WITH_TAG"
+        run: docker push "$IMAGE_WITH_TAG" 
 
       - name: Set Kustomize
         run: |-
