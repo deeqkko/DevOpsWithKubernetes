@@ -22,5 +22,5 @@ jobs:
           project_id: ${{ secrets.GKE_PROJECT_ID }}
       
       - name: Delete namespace
-      - run: |-
+        run: |-
           kubectl delete namespace ${GITHUB_REF#refs/heads/}
