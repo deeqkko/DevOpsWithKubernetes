@@ -1,6 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  - manifests/kube-todo-sealed-cw.yaml
+  - manifests/tododb-config.yaml
+  - manifests/tododb-statset.yaml
   - manifests/app-config.yaml
   - manifests/kube-todo-svc.yaml
   - manifests/kube-todo-depl.yaml
