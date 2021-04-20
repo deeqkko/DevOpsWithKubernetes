@@ -1,4 +1,4 @@
-name: Release Application
+name: Delete Application
 
 on: [delete]
 
@@ -23,4 +23,4 @@ jobs:
       
       - name: Delete namespace
         run: |-
-          kubectl delete namespace ${GITHUB_REF#refs/heads/}
+          kubectl delete namespace ${GITHUB_REF#refs/heads/} || true
