@@ -26,6 +26,4 @@ jobs:
       
       - name: Delete namespace
         run: |-
-          echo "::set-env name=GITHUB_REF::${{ github.event.ref }}"
-          GITHUB_REF=$(echo $GITHUB_REF | sed -e "s#refs/heads/##g")
-          kubectl delete namespaces $GITHUB_REF
+          kubectl delete namespaces ${{ github.event.ref }}
