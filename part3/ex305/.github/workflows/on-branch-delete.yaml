@@ -1,6 +1,6 @@
-name: Release Application
+name: Delete Application
 
-on: [push, delete]
+on: [delete]
 
 env:
   GKE_CLUSTER: dwk-kko
@@ -9,8 +9,8 @@ env:
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 jobs:
-  build-publish-deploy:
-    name: Delete namespace
+  delete-environment:
+    name: Delete environment
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,7 +20,10 @@ jobs:
         with:
           service_account_key: ${{ secrets.GKE_SA_KEY }}
           project_id: ${{ secrets.GKE_PROJECT_ID }}
+
+      - run: gcloud --quiet auth configure-docker
+      - run: gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
       
       - name: Delete namespace
-      - run: |-
-          kubectl delete namespace ${GITHUB_REF#refs/heads/}
+        run: |-
+          kubectl delete namespaces ${{ github.event.ref }}
