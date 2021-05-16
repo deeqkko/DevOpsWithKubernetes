@@ -4,7 +4,7 @@ on:
   push:
 
 env:
-  GKE_CLUSTER: dwk-kko
+  GKE_CLUSTER: dwk-kko-cluster
   GKE_ZONE: europe-north1-b
   IMAGE: kube-todo
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
@@ -47,4 +47,4 @@ jobs:
           ./kustomize edit set image PROJECT/IMAGE=$IMAGE_WITH_TAG
           kubectl apply -k .
           kubectl rollout status deployment $IMAGE
-          kubectl rollout restart deployment $IMAGE 
+          kubectl rollout restart deployment $IMAGE
