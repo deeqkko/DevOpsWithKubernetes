@@ -14,3 +14,4 @@ kustomize/kube-todo/kube-todo-secret.yaml
 part3/ex303/tododb/kube-todo-secret.yaml
 kube-todo/dwk-kko-kubernetes-19c2efb6528d.json
 manifests/kube-todo-secret.yaml
+kube-todo/dwk-kko-kubernetes-d53c4ab741c0.json

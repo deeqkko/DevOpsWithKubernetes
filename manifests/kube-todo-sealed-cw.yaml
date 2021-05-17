@@ -1,18 +1,14 @@
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
-  annotations:
-    sealedsecrets.bitnami.com/cluster-wide: "true"
   creationTimestamp: null
   name: kube-todo-secret
   namespace: project
 spec:
   encryptedData:
-    POSTGRES_PASSWORD: AgBJrVS6ZUQDZuxOzLNGFNz05PllmNAUT5lH4tiBoJblBl2DhEzkYBupz5EqXguj1U/IXKiluGEfwM5Bv4sxTcy/znpUDH6/HwghFf4s+34eel8LW3nEq7L9xW9uPpgRIuFr+Yhva2mTd0p8bnbwBuZyH1hxrhtEyeTqgpAVN7DFvCZXDfAG7Dfumal04VAU3j121+l1nUG43NT1WIFTiyXlUD3naO4RZMiehohptWQddFWw4IvB0NEaJT7PISkBZaTXHyAphsruYhNTQsKSmQNIHX/a6HW8sKpZdKzeop38HYiJFmBF39N9TU7vqvHLAArHo11S8HyEVI1OwiQftCvDFtkkdCOoWZJ5n+sc2U6zay9kejmOefpVf/5KNnFEKdAzDtIolZP8mCOqVZShgCZz/f4jNuVD4Ms1v39HA/09y7/E/U0KF89/P1Xrd97yV/jno4KZNYR7qNHZd/J8H2w+jVWZGtcvbRb/DqnsPa4gjgGJCmRGsgL23pFGi8Lktq/U5jYk5KsCKkv7MyDLPazO7ZSvVp+hZ0fpeQ/xqedNEzwLs2sUO/PkIuNfbjwCvEqMu7qAlSuAjWUOkvJaZPHQ6UXWk4xXkfMWYzFLPt618/c5dq0/u4xWQ5DBYSqAjkQZb2BEmksFHzX+merLrErQGKGaa3dLwKGJwGi+eF5Aif16UPEsQBpnJhPtAPhqhj23kADEsG+Jad1RbA6ZRMWpFLt3
+    POSTGRES_PASSWORD: AgBMpr2pB3aIonezz9KP/EGXrdVn8T+yHWPAC+/6IQnyo0SL6s1cC7tzSWc1kRuUPt+UtildsXZ50j9Bq6YRJYF26pKLvqhzARaeNHSD8aJF6Ea8caL7UXWUBfEpDNQAZTtQk5NgawR8zoh1EtZ8xc7+PscR0Mty1x8htYSRvVKW7eI5iI0sqrH8m/YGCq3YnD2vVUMrSYXJN0wouKyXObrYjL60FgAV6DS2VxlBnRXK7Lh8Mpzu/xIMkcfzldLb856lL9Blu3mDnqEnjzVdURNqBv+wR43msRa0mKwPyNFTq7WsYNCwjDcVml1kXkHm0vzqzB7iBVPvjiQ7Rr+A1aiCT4Ptx58tb0ctstgyWUwY3xAbTz0URGz2lUaoFeHBOmaNaODlcwPTwj/7apdy6dIncl0RzRns2ib4nHaAlbN6RQ8iNysc609VFtmB9lFtQEoR4XlYHxzM4KICZajROyLbzUiCSxluqMdZNgHJutof6QDDjRzNFM57c6Gzr4oqsRKRRAmTriiCRU9qeOdhw1eREKh6vtDJj2mCjt9KG2E8ULeFGgUKdrACPHf/Ws6KQf8jjiTj/Xx3BTLqbEe+hyPnW5MneLKKbfkfts5ma1m95SEe5s4wdkkpH626FDEsj9dPJ+b2P4BCuUf/PKLb9w6p4HZStwgKHxIFapStWKkaElKg2HzatQyxaYdpPN3ZedtYF/c9oQ/l4NOxQE7ub43uq4ix
   template:
     metadata:
-      annotations:
-        sealedsecrets.bitnami.com/cluster-wide: "true"
       creationTimestamp: null
       name: kube-todo-secret
       namespace: project
