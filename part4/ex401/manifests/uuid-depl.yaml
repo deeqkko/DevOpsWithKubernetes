@@ -16,8 +16,8 @@ spec:
       - name: uuid-app-http
         image: deeq/uuid-app-http:latest
         readinessProbe:
-            initialDelaySeconds: 10 # Initial delay until the readiness is tested
-            periodSeconds: 5 # How often to test
+            initialDelaySeconds: 10 
+            periodSeconds: 5 
             httpGet:
                path: /healthz
                port: 8083
