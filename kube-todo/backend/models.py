@@ -7,9 +7,6 @@ class todo(models.Model):
     def __str__(self):
         return self.task
 
-    def __init__(self):
-        self.fields['done'].initial = False
-
 class Potd(models.Model):
     image_file = models.ImageField(upload_to='potd')
     
