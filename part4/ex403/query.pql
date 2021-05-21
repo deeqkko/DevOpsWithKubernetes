@@ -1,1 +1,1 @@
-count(kube_pod_info{namespace="prometheus",pod=~"prometheus.+|alert.+"}) by (namespace)
+scalar(count(kube_pod_info{namespace="prometheus",pod=~"prometheus.+|alert.+"}))
