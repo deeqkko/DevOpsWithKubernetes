@@ -12,16 +12,16 @@ from backend.models import todo, Potd
 from backend.potd import load_image
 from backend.dummyconnector import get_dummy_tasks
 
-# handler = logging_loki.LokiHandler(
-#     url=os.getenv('LOG_URL'), 
-#     tags={"application": "kube-todo"},
-#     version="1"
-# )
+handler = logging_loki.LokiHandler(
+    url=os.getenv('LOG_URL'), 
+    tags={"application": "kube-todo"},
+    version="1"
+)
 
 
 logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',level=logging.INFO)
 logger = logging.getLogger(__name__)
-#logger.addHandler(handler)
+logger.addHandler(handler)
 
 
 class TodoListView(ListView):
@@ -31,13 +31,14 @@ class TodoListView(ListView):
     
 
     def get_context_data(self, **kwargs):
+        if not Potd.objects.exists():
+            load_image()
+            Potd(1,'potd/potd.jpg').save()
+            logger.info('No image reference found. Creating ["potd/potd.jpg]')
         if time.time() - os.path.getmtime('backend/potd/potd.jpg') > 86400:
             load_image()
         context = super().get_context_data(**kwargs)
         context["form"] = self.todoform
-        if not Potd.objects.exists():
-            Potd(1,'potd/potd.jpg').save()
-            logger.info('No image reference found. Creating ["potd/potd.jpg]')
         context["potd"] = Potd.objects.get()
         context["dummy_tasks"] = get_dummy_tasks()
         uri = self.request.build_absolute_uri()

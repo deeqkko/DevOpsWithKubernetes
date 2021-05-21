@@ -12,16 +12,16 @@ from backend.models import todo, Potd
 from backend.potd import load_image
 from backend.dummyconnector import get_dummy_tasks
 
-# handler = logging_loki.LokiHandler(
-#     url=os.getenv('LOG_URL'), 
-#     tags={"application": "kube-todo"},
-#     version="1"
-# )
+handler = logging_loki.LokiHandler(
+    url=os.getenv('LOG_URL'), 
+    tags={"application": "kube-todo"},
+    version="1"
+)
 
 
 logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',level=logging.INFO)
 logger = logging.getLogger(__name__)
-#logger.addHandler(handler)
+logger.addHandler(handler)
 
 
 class TodoListView(ListView):
