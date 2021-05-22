@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block todolist %}
+    <h3>Tasks</h3>
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Done</th>
+        </tr>
+        {% for task in object_list %}
+            <tr>
+            <td>{{task.task}}</td><td><button class="btn" id={{task.id}} name={{task.id}}>{{task.done}}</button></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit">
+    </form>
+    <h4>Example tasks</h4>
+    <ul>
+    {% for task in dummy_tasks.task %}
+        <li>{{task}}</li>
+    {% endfor %}
+
+{% endblock %}
+

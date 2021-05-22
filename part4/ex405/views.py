@@ -40,6 +40,7 @@ class TodoListView(ListView):
             load_image()
         context = super().get_context_data(**kwargs)
         context["form"] = self.todoform
+        context["update"] = self.updateform
         context["potd"] = Potd.objects.get()
         context["dummy_tasks"] = get_dummy_tasks()
         uri = self.request.build_absolute_uri()

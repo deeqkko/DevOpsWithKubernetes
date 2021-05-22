@@ -29,7 +29,7 @@ spec:
             claimName: kube-todo-potd-pvc
       containers:
       - name: kube-todo
-        image: deeq/kube-todo:1.7
+        image: deeq/kube-todo:1.9
         volumeMounts:
           - mountPath: /app/DB
             name: shared-image-db
