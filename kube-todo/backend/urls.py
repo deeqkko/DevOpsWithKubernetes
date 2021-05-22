@@ -3,6 +3,7 @@ from . import views
 from backend.views import TodoListView, HealthCheckView
 
 urlpatterns = [
-    path('', TodoListView.as_view()),
-    path('healthz', HealthCheckView.as_view())
+    path('', TodoListView.as_view(), name="todolist"),
+    path('healthz', HealthCheckView.as_view()),
+    #path('<int:task_id>', updateDone, name="updateDone")
 ]
