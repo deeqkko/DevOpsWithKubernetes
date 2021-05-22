@@ -2,11 +2,17 @@
 
 {% block todolist %}
     <h3>Tasks</h3>
-    <ul>
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Done</th>
+        </tr>
         {% for task in object_list %}
-            <li>{{task.task}}</li>
+            <tr>
+            <td>{{task.task}}</td><td><button class="btn" id={{task.id}} name={{task.id}}>{{task.done}}</button></td>
+            </tr>
         {% endfor %}
-    </ul>
+    </table>
     <form action="" method="post">
         {% csrf_token %}
         {{form}}

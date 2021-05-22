@@ -1,16 +1,18 @@
 import time
 import os
 import logging
+import json
 import logging_loki
 from django.db import connection
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.views import View
 from django.views.generic.list import ListView
-from .forms import TodoForm
+from .forms import TodoForm, UpdateForm
 from backend.models import todo, Potd
 from backend.potd import load_image
 from backend.dummyconnector import get_dummy_tasks
+from django.views.decorators.csrf import csrf_exempt
 
 handler = logging_loki.LokiHandler(
     url=os.getenv('LOG_URL'), 
@@ -28,8 +30,8 @@ class TodoListView(ListView):
     model = todo
     template_name = 'todo_list.html'
     todoform = TodoForm()
+    updateform = UpdateForm()
     
-
     def get_context_data(self, **kwargs):
         if not Potd.objects.exists():
             load_image()
@@ -39,13 +41,14 @@ class TodoListView(ListView):
             load_image()
         context = super().get_context_data(**kwargs)
         context["form"] = self.todoform
+        context["update"] = self.updateform
         context["potd"] = Potd.objects.get()
         context["dummy_tasks"] = get_dummy_tasks()
         uri = self.request.build_absolute_uri()
         method = self.request.method
         logger.info('%s %s', method, uri)
         return context
-    
+
     def post(self, request, **kwargs):
         new_task = TodoForm(request.POST)
         if new_task.is_valid():
@@ -56,6 +59,15 @@ class TodoListView(ListView):
         else:
             logger.error(new_task.errors.as_data())
             return HttpResponseBadRequest(new_task.errors)
+
+    def put(self, request):
+        if request.method == "PUT":
+            task_id = json.loads(request.body)["btn_id"]
+            task = get_object_or_404(todo, pk=task_id)
+            task.done = not task.done
+            task.save()
+            return HttpResponse(status=200)
+
 
 class HealthCheckView(View):
     def get(self, request, *args, **kwargs):

@@ -4,7 +4,24 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Kube Todo v1.8</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $(".btn").click(function(){
+                    var data = { 'btn_id' : $(this).attr('id') }
+                    $.ajax(
+                        {
+                        url: '/',
+                        type: 'PUT',
+                        data: JSON.stringify(data),
+                        }
+                    ).done(function() {
+                        location.reload()
+                    });
+                }); 
+            });
+        </script>
+        <title>Kube Todo v1.9</title>
     </head>
     <body>
         <h1>Kube Todo App</h1>
